@@ -1,0 +1,8 @@
+Package: Quarto-in-300s 
+Type: Package
+Title: Quarto-in-300s
+Version: 0.1.0
+Imports:
+  rmarkdown,
+  knitr,
+  tidyverse
