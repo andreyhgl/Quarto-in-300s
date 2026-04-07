@@ -1,0 +1,307 @@
+---
+title: "Quarto in 300 Seconds"
+subtitle: "Everything you need to know to get started"
+format:
+  revealjs:
+    theme: dark
+    transition: none
+    background-transition: fade
+    slide-number: true
+    footer: "Quarto in 300 Seconds"
+    smaller: true
+    css: custom.css
+author: "Andrey Höglund"
+date: today
+---
+
+<!-- What is Quarto -->
+
+## What is Quarto?
+
++ Interactive reports
++ Markdown based
++ Computation inside the file!
+
+## Anatomy of a Quarto file <!-- HEADER -->
+
+````{.md filename="report_file.qmd" code-line-numbers=""}
+---
+title: "Results!"
+format: html
+Author: "Andrey Höglund"
+date: Today
+---
+
+# The results
+
+The main results of the analysis were ...
+
+```{.r}
+plot(1:10)
+```
+````
+
+## Anatomy of a Quarto file <!-- HEADER -->
+
+````{.md filename="report_file.qmd" code-line-numbers="1-6"}
+---
+title: "Results!"
+format: html
+Author: "Andrey Höglund"
+date: Today
+---
+
+# The results
+
+The main results of the analysis were ...
+
+```{.r}
+plot(1:10)
+```
+````
+
+<br>
+
++ YAML header (file's meta data)
+
+## Anatomy of a Quarto file <!-- HEADER -->
+
+````{.md filename="report_file.qmd" code-line-numbers="8-10"}
+---
+title: "Results!"
+format: html
+Author: "Andrey Höglund"
+date: Today
+---
+
+# The results
+
+The main results of the analysis were ...
+
+```{.r}
+plot(1:10)
+```
+````
+
+<br>
+
++ YAML header (file's meta data)
++ Markdown
+
+## Anatomy of a Quarto file <!-- HEADER -->
+
+````{.md filename="report_file.qmd" code-line-numbers="11-14"}
+---
+title: "Results!"
+format: html
+Author: "Andrey Höglund"
+date: Today
+---
+
+# The results
+
+The main results of the analysis were ...
+
+```{.r}
+plot(1:10)
+```
+````
+
+<br>
+
++ YAML header (file's meta data)
++ Markdown
++ `code chunks`
+
+
+## Project structure
+
+Folders
+
+```{.yml}
+/project
+|
+`-- report_file.qmd
+```
+
+<br>
+
+::: {.fragment}
+
+Run render command to create report
+
+```shell
+quarto render report_file.qmd
+```
+
+:::
+
+## Project structure
+
+Folders
+
+```{.yml code-line-numbers="2"}
+/project
+|-- rendered_report.html
+`-- report_file.qmd
+```
+
+<br>
+
+Run render command to create report
+
+```shell
+quarto render report_file.qmd
+```
+
+---
+
+<!-- Markdown body -->
+<!-- Code chunks -->
+<!-- Example: plot -->
+<!-- Example: statistics -->
+<!-- Example: import updated_data.csv (same code, updated results) -->
+
+
+
+
+
+## What is Quarto?
+
+- An open-source scientific and technical publishing system
+- Built on Pandoc — write in Markdown, output anywhere
+- The **next generation** of R Markdown (but not R-only)
+- Created by Posit (formerly RStudio)
+
+::: {.notes}
+Quarto lets you turn plain text into polished documents, presentations, websites, and books.
+:::
+
+---
+
+## Why Quarto?
+
+| Feature | Benefit |
+|---|---|
+| Multi-language | R, Python, Julia, Observable JS |
+| Multi-format | HTML, PDF, Word, Revealjs, and more |
+| Single source | One `.qmd` file → many outputs |
+| Reproducible | Code + prose live together |
+
+---
+
+## Installing Quarto
+
+1. Download from [quarto.org](https://quarto.org)
+2. Install the CLI (works on macOS, Linux, Windows)
+3. Use with your favourite editor:
+   - VS Code (official extension)
+   - RStudio (built-in)
+   - Jupyter
+   - Neovim
+
+---
+
+## Anatomy of a `.qmd` File
+
+```{.yaml filename="example.qmd"}
+---
+title: "My Document"
+format: html
+---
+
+## A heading
+
+Some text and a code chunk:
+
+```
+
+A `.qmd` file = **YAML front matter** + **Markdown** + **code chunks**
+
+---
+
+## Code Chunks in Action
+
+````markdown
+```r
+library(tidyverse)
+df <- read_csv("data.csv")
+summary(df)
+```
+````
+
+- Code runs at render time
+- Output (tables, plots) is embedded automatically
+- Use `echo: false` to hide code, `eval: false` to skip execution
+
+---
+
+## Output Formats
+
+Change one line in the YAML to switch formats:
+
+```yaml
+format: html        # interactive web page
+format: pdf         # LaTeX-quality PDF
+format: docx        # Word document
+format: revealjs    # slide deck (like this one!)
+format: dashboard   # interactive dashboard
+```
+
+One source, many destinations.
+
+---
+
+## Rendering
+
+From the terminal:
+
+```bash
+quarto render my-file.qmd
+```
+
+Or preview with live reload:
+
+```bash
+quarto preview my-file.qmd
+```
+
+VS Code & RStudio also offer one-click render buttons.
+
+---
+
+## Beyond Single Documents
+
+Quarto can power entire **projects**:
+
+- **Websites** — blogs, documentation sites
+- **Books** — multi-chapter with cross-references
+- **Dashboards** — interactive data apps
+- **Manuscripts** — journal-ready articles with citations
+
+All configured through a `_quarto.yml` project file.
+
+---
+
+## Tips & Tricks
+
+- Use `#| label: fig-plot` to cross-reference figures
+- Add `freeze: true` to cache expensive computations
+- Publish instantly with `quarto publish` (GitHub Pages, Netlify, Quarto Pub)
+- Parameterised reports: pass variables at render time
+
+---
+
+## Get Started Now
+
+1. Install → `quarto.org`
+2. Create → `quarto create project`
+3. Write → mix Markdown and code
+4. Render → `quarto render`
+5. Publish → `quarto publish`
+
+**Your 300 seconds are up — go build something!** 🚀
+
+::: {.callout-tip}
+Full docs: [quarto.org/docs](https://quarto.org/docs)
+:::
