@@ -22,7 +22,11 @@ date: today
 + Markdown based
 + Computation inside the file!
 
-## Anatomy of a Quarto file <!-- HEADER -->
+# The [Anatomy]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} of a Quarto file {style="font-size: 0.8em; text-align: center;" auto-animate="true"}
+
+::: {.slide transition="zoom-in none-out"}
+
+## The [Anatomy]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} of a Quarto file <!-- HEADER -->
 
 ````{.md filename="report_file.qmd" code-line-numbers=""}
 ---
@@ -36,12 +40,14 @@ date: Today
 
 The main results of the analysis were ...
 
-```{.r}
+```{{r}}
 plot(1:10)
 ```
 ````
 
-## Anatomy of a Quarto file <!-- HEADER -->
+:::
+
+## The [Anatomy]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} of a Quarto file <!-- HEADER -->
 
 ````{.md filename="report_file.qmd" code-line-numbers="1-6"}
 ---
@@ -55,7 +61,7 @@ date: Today
 
 The main results of the analysis were ...
 
-```{.r}
+```{{r}}
 plot(1:10)
 ```
 ````
@@ -64,7 +70,7 @@ plot(1:10)
 
 + YAML header (file's meta data)
 
-## Anatomy of a Quarto file <!-- HEADER -->
+## The [Anatomy]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} of a Quarto file <!-- HEADER -->
 
 ````{.md filename="report_file.qmd" code-line-numbers="8-10"}
 ---
@@ -78,7 +84,7 @@ date: Today
 
 The main results of the analysis were ...
 
-```{.r}
+```{{r}}
 plot(1:10)
 ```
 ````
@@ -88,7 +94,7 @@ plot(1:10)
 + YAML header (file's meta data)
 + Markdown
 
-## Anatomy of a Quarto file <!-- HEADER -->
+## The [Anatomy]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} of a Quarto file <!-- HEADER -->
 
 ````{.md filename="report_file.qmd" code-line-numbers="11-14"}
 ---
@@ -102,7 +108,7 @@ date: Today
 
 The main results of the analysis were ...
 
-```{.r}
+```{{r}}
 plot(1:10)
 ```
 ````
@@ -113,6 +119,7 @@ plot(1:10)
 + Markdown
 + `code chunks`
 
+---
 
 ## Project structure
 
