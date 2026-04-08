@@ -247,66 +247,6 @@ Quarto renders a file in the same manner as a jupyter notebook
 
 ## Running _`code`_ inside a Quarto file
 
-````{.md filename="script.py" code-line-numbers="|1|3"}
-```{{python}}
-# Air particle measurements in a vector
-measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
-len(measurements)
-sum(measurements)
-```
-````
-
-:::: {style="position: absolute; bottom: 30px; width: 100%;"}
-::: {.callout-tip}
-Quarto renders a file in the same manner as a jupyter notebook
-:::
-::::
-
-## Running _`code`_ inside a Quarto file
-
-````{.md filename="script.py" code-line-numbers="4"}
-```{{python}}
-# Air particle measurements in a vector
-measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
-len(measurements)
-sum(measurements)
-```
-````
-
-```{python}
-measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
-len(measurements)
-```
-
-:::: {style="position: absolute; bottom: 30px; width: 100%;"}
-::: {.callout-tip}
-Quarto renders a file in the same manner as a jupyter notebook
-:::
-::::
-
-## Running _`code`_ inside a Quarto file
-
-````{.md filename="script.py" code-line-numbers="5"}
-```{{python}}
-# Air particle measurements in a vector
-measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
-len(measurements)
-sum(measurements)
-```
-````
-
-```{python}
-sum(measurements)
-```
-
-:::: {style="position: absolute; bottom: 30px; width: 100%;"}
-::: {.callout-tip}
-Quarto renders a file in the same manner as a jupyter notebook
-:::
-::::
-
-## Running _`code`_ inside a Quarto file
-
 ````{.md filename="script.R" code-line-numbers="4|7|9|11"}
 
 ```{{r}}
@@ -419,13 +359,15 @@ And the total sum was `r sum(measurements)`.
 
 # 3. Version control - Git
 
+::: {.slide transition="zoom-in none-out"}
+
 ## Version control - Git
 
 Version control is [not]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} track changes
 
 [![](images/track_changes.png)]{.fragment}
 
-::: {.slide transition="zoom-in none-out"}
+:::
 
 ## Version control - Git
 
@@ -433,15 +375,12 @@ Since a Quarto file is _plain text_ we can track all changes with version contro
 
 [![](images/git.png)]{.fragment}
 
-:::
-
 ## Conclusion
 
 [Webpages]{.fragment fragment-index=1}<br>
 [Reports]{.fragment fragment-index=2}<br>
 [Presentations (like this one)]{.fragment fragment-index=3}<br>
 [Articles]{.fragment fragment-index=4}<br>
-[PDFs]{.fragment fragment-index=5}<br>
-[Your kappa?!]{.fragment fragment-index=6}<br>
+[Your kappa?!]{.fragment fragment-index=5}<br>
 
 [![](images/homepage.png)]{.fragment fragment-index=1 style="position: absolute; top: 50px; right: 0px; width: 65%;"}
