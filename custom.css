@@ -8,3 +8,7 @@
   text-align: center !important;
   font-size: 1.4em !important;
 }
+
+.reveal .quarto-title-author-email {
+  color: grey !important;
+}

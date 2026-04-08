@@ -1,6 +1,5 @@
 ---
 title: "Quarto in 300 Seconds"
-subtitle: "Everything you need to know to get started"
 format:
   revealjs:
     theme: dark
@@ -10,19 +9,55 @@ format:
     footer: "Quarto in 300 Seconds"
     smaller: true
     css: custom.css
-author: "Andrey Höglund"
+author: 
+  - name: "Andrey Höglund"
+    email: "andrey.hoglund@aces.su.se"
 date: today
+callout-appearance: minimal
 ---
 
-<!-- What is Quarto -->
+## Quarto is a software tool that . . . <!-- What is Quarto -->
 
-## What is Quarto?
+::: {.incremental}
 
 + Interactive reports
-+ Markdown based
 + Computation inside the file!
++ Written in `Markdown` format
++ `Inline code`
 
-# The [Anatomy]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} of a Quarto file {style="font-size: 0.8em; text-align: center;" auto-animate="true"}
+:::
+
+```{r}
+#| output: false
+library(tidyverse)
+data <- data.frame(value = rnorm(500))
+ojs_define(hist_data = data)
+```
+
+::: {.fragment style="position: absolute; top: 100px; right: 0px; width: 60%;"}
+
+```{ojs}
+//| echo: false
+viewof bins = Inputs.range([5, 100], {value: 30, step: 5, label: "Bins:"})
+
+data = transpose(hist_data)
+
+Plot.plot({
+  marks: [
+    Plot.rectY(data, Plot.binX({y: "count"}, {
+      x: d => d.value,
+      thresholds: bins,
+      fill: "steelblue",
+      stroke: "black"
+    }))
+  ],
+  style: {background: "transparent", color: "white", fontSize: 18}
+})
+```
+
+:::
+
+# 1. The [Anatomy]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} of a Quarto file {style="font-size: 0.7em; text-align: center;" auto-animate="true"}
 
 ::: {.slide transition="zoom-in none-out"}
 
@@ -119,47 +154,234 @@ plot(1:10)
 + Markdown
 + `code chunks`
 
----
+# 2. Running _`code`_ inside a Quarto file {style="font-size: 0.6em; text-align: center;" auto-animate="true"}
 
-## Project structure
+::: {.slide transition="zoom-in none-out"}
 
-Folders
+## Running _`code`_ inside a Quarto file
 
-```{.yml}
-/project
-|
-`-- report_file.qmd
+````{.md filename="report_file.qmd" code-line-numbers="|1-6|2,8-10|2,12-14|2,16-18"}
+
+These code chucks will be executed with:
+
+```{{r}}
+# R
 ```
 
-<br>
-
-::: {.fragment}
-
-Run render command to create report
-
-```shell
-quarto render report_file.qmd
+```{{python}}
+# Python
 ```
+
+```{{julia}}
+# Julia
+```
+
+```{{ojs}}
+# Observable
+```
+
+
+````
 
 :::
 
-## Project structure
+## Running _`code`_ inside a Quarto file
 
-Folders
+````{.md filename="script.R" code-line-numbers="|3"}
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+```
+````
 
-```{.yml code-line-numbers="2"}
-/project
-|-- rendered_report.html
-`-- report_file.qmd
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+Quarto renders a file in the same manner as a jupyter notebook
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.R" code-line-numbers=4}
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+length(measurements)
+sum(measurements)
+```
+````
+
+```{r}
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+length(measurements)
 ```
 
-<br>
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+Quarto renders a file in the same manner as a jupyter notebook
+:::
+::::
 
-Run render command to create report
+## Running _`code`_ inside a Quarto file
 
-```shell
-quarto render report_file.qmd
+````{.md filename="script.R" code-line-numbers=5}
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+length(measurements)
+sum(measurements)
 ```
+````
+
+```{r}
+sum(measurements)
+```
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+Quarto renders a file in the same manner as a jupyter notebook
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.py" code-line-numbers="|1|3"}
+```{{python}}
+# Air particle measurements in a vector
+measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
+len(measurements)
+sum(measurements)
+```
+````
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+Quarto renders a file in the same manner as a jupyter notebook
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.py" code-line-numbers="4"}
+```{{python}}
+# Air particle measurements in a vector
+measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
+len(measurements)
+sum(measurements)
+```
+````
+
+```{python}
+measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
+len(measurements)
+```
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+Quarto renders a file in the same manner as a jupyter notebook
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.py" code-line-numbers="5"}
+```{{python}}
+# Air particle measurements in a vector
+measurements = [10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23]
+len(measurements)
+sum(measurements)
+```
+````
+
+```{python}
+sum(measurements)
+```
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+Quarto renders a file in the same manner as a jupyter notebook
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.R" code-line-numbers="4|7|9|11"}
+
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+```
+
+We collected `{{r}} length(measurements)` measurements.
+
+The average was `{{r}} mean(measurements)`.
+
+And the total sum was `{{r}} sum(measurements)`.
+
+````
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+`Inline code` - do some calculation and present in the text
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.R" code-line-numbers="7-11"}
+
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+```
+
+We collected `{{r}} length(measurements)` measurements.
+
+The average was `{{r}} mean(measurements)`.
+
+And the total sum was `{{r}} sum(measurements)`.
+
+````
+
+```{r}
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+```
+
+We collected `r length(measurements)` measurements.
+
+The average was `r mean(measurements)`.
+
+And the total sum was `r sum(measurements)`.
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+`Inline code` - do some calculation and present in the text
+:::
+::::
+
+# 3. Version control - Git
+
+## Version control - Git
+
+Version control is [not]{style="color: red; font-family: 'Playfair Display', serif; font-style: italic;"} track changes
+
+[![](images/track_changes.png)]{.fragment}
+
+## Version control - Git
+
+Since a Quarto file is _plain text_ we can track all changes with version control
+
+[![](images/git.png)]{.fragment}
+
+# 3. Course webpage
+
+## _Research Trends in Toxicology_ (MI8016)
+
+[![](images/homepage.png)]{.fragment}
+
+
+# 5.
+
 
 ---
 
@@ -207,24 +429,6 @@ Quarto lets you turn plain text into polished documents, presentations, websites
    - RStudio (built-in)
    - Jupyter
    - Neovim
-
----
-
-## Anatomy of a `.qmd` File
-
-```{.yaml filename="example.qmd"}
----
-title: "My Document"
-format: html
----
-
-## A heading
-
-Some text and a code chunk:
-
-```
-
-A `.qmd` file = **YAML front matter** + **Markdown** + **code chunks**
 
 ---
 
@@ -299,16 +503,6 @@ All configured through a `_quarto.yml` project file.
 - Parameterised reports: pass variables at render time
 
 ---
-
-## Get Started Now
-
-1. Install → `quarto.org`
-2. Create → `quarto create project`
-3. Write → mix Markdown and code
-4. Render → `quarto render`
-5. Publish → `quarto publish`
-
-**Your 300 seconds are up — go build something!** 🚀
 
 ::: {.callout-tip}
 Full docs: [quarto.org/docs](https://quarto.org/docs)

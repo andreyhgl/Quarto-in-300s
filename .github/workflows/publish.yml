@@ -25,6 +25,9 @@ jobs:
       - name: Install R packages from DESCRIPTION-file
         uses: r-lib/actions/setup-r-dependencies@v2
 
+      - name: Install Python packages
+        run: Rscript -e 'reticulate::py_install(c("pandas", "statsmodels"))'
+
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
