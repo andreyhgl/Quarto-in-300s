@@ -39,6 +39,7 @@ jobs:
           mkdir -p _site
           cp quarto-in-300-seconds.html _site/index.html
           cp -r quarto-in-300-seconds_files _site/ 2>/dev/null || true
+          cp -r images _site/ 2>/dev/null || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
