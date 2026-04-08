@@ -6,14 +6,15 @@ format:
     transition: none
     background-transition: fade
     slide-number: true
-    footer: "Quarto in 300 Seconds"
     smaller: true
     css: custom.css
+    footer: "[Github repo](https://github.com/andreyhgl/Quarto-in-300s) | Quarto in 300 Seconds"
 author: 
   - name: "Andrey Höglund"
     email: "andrey.hoglund@aces.su.se"
 date: today
 callout-appearance: minimal
+
 ---
 
 ## Quarto is a software tool that . . . <!-- What is Quarto -->
@@ -24,6 +25,7 @@ callout-appearance: minimal
 + Computation inside the file!
 + Written in `Markdown` format
 + `Inline code`
++ Open-source
 
 :::
 
@@ -359,6 +361,62 @@ And the total sum was `r sum(measurements)`.
 :::
 ::::
 
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.R" code-line-numbers="4"}
+
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23, 20, 54, 43, 23, 1, 3, 8, 83, 58, 58, 39)
+```
+
+We collected `{{r}} length(measurements)` measurements.
+
+The average was `{{r}} mean(measurements)`.
+
+And the total sum was `{{r}} sum(measurements)`.
+
+````
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+`Inline code` - do some calculation and present in the text
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.R" code-line-numbers="7-11"}
+
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23, 20, 54, 43, 23, 1, 3, 8, 83, 58, 58, 39)
+```
+
+We collected `{{r}} length(measurements)` measurements.
+
+The average was `{{r}} mean(measurements)`.
+
+And the total sum was `{{r}} sum(measurements)`.
+
+````
+
+```{r}
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23, 20, 54, 43, 23, 1, 3, 8, 83, 58, 58, 39)
+```
+
+We collected `r length(measurements)` measurements.
+
+The average was `r mean(measurements)`.
+
+And the total sum was `r sum(measurements)`.
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+`Inline code` - do some calculation and present in the text
+:::
+::::
+
 # 3. Version control - Git
 
 ## Version control - Git
@@ -373,137 +431,13 @@ Since a Quarto file is _plain text_ we can track all changes with version contro
 
 [![](images/git.png)]{.fragment}
 
-# 3. Course webpage
+## Conclusion
 
-## _Research Trends in Toxicology_ (MI8016)
+[Webpages]{.fragment fragment-index=1}<br>
+[Reports]{.fragment fragment-index=2}<br>
+[Presentations (like this one)]{.fragment fragment-index=3}<br>
+[Articles]{.fragment fragment-index=4}<br>
+[PDFs]{.fragment fragment-index=5}<br>
+[Your kappa?!]{.fragment fragment-index=6}<br>
 
-[![](images/homepage.png)]{.fragment}
-
-
-# 5.
-
-
----
-
-<!-- Markdown body -->
-<!-- Code chunks -->
-<!-- Example: plot -->
-<!-- Example: statistics -->
-<!-- Example: import updated_data.csv (same code, updated results) -->
-
-
-
-
-
-
-## What is Quarto?
-
-- An open-source scientific and technical publishing system
-- Built on Pandoc — write in Markdown, output anywhere
-- The **next generation** of R Markdown (but not R-only)
-- Created by Posit (formerly RStudio)
-
-::: {.notes}
-Quarto lets you turn plain text into polished documents, presentations, websites, and books.
-:::
-
----
-
-## Why Quarto?
-
-| Feature | Benefit |
-|---|---|
-| Multi-language | R, Python, Julia, Observable JS |
-| Multi-format | HTML, PDF, Word, Revealjs, and more |
-| Single source | One `.qmd` file → many outputs |
-| Reproducible | Code + prose live together |
-
----
-
-## Installing Quarto
-
-1. Download from [quarto.org](https://quarto.org)
-2. Install the CLI (works on macOS, Linux, Windows)
-3. Use with your favourite editor:
-   - VS Code (official extension)
-   - RStudio (built-in)
-   - Jupyter
-   - Neovim
-
----
-
-## Code Chunks in Action
-
-````markdown
-```r
-library(tidyverse)
-df <- read_csv("data.csv")
-summary(df)
-```
-````
-
-- Code runs at render time
-- Output (tables, plots) is embedded automatically
-- Use `echo: false` to hide code, `eval: false` to skip execution
-
----
-
-## Output Formats
-
-Change one line in the YAML to switch formats:
-
-```yaml
-format: html        # interactive web page
-format: pdf         # LaTeX-quality PDF
-format: docx        # Word document
-format: revealjs    # slide deck (like this one!)
-format: dashboard   # interactive dashboard
-```
-
-One source, many destinations.
-
----
-
-## Rendering
-
-From the terminal:
-
-```bash
-quarto render my-file.qmd
-```
-
-Or preview with live reload:
-
-```bash
-quarto preview my-file.qmd
-```
-
-VS Code & RStudio also offer one-click render buttons.
-
----
-
-## Beyond Single Documents
-
-Quarto can power entire **projects**:
-
-- **Websites** — blogs, documentation sites
-- **Books** — multi-chapter with cross-references
-- **Dashboards** — interactive data apps
-- **Manuscripts** — journal-ready articles with citations
-
-All configured through a `_quarto.yml` project file.
-
----
-
-## Tips & Tricks
-
-- Use `#| label: fig-plot` to cross-reference figures
-- Add `freeze: true` to cache expensive computations
-- Publish instantly with `quarto publish` (GitHub Pages, Netlify, Quarto Pub)
-- Parameterised reports: pass variables at render time
-
----
-
-::: {.callout-tip}
-Full docs: [quarto.org/docs](https://quarto.org/docs)
-:::
+[![](images/homepage.png)]{.fragment fragment-index=1 style="position: absolute; top: 50px; right: 0px; width: 65%;"}
