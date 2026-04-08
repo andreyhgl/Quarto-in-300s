@@ -415,10 +415,10 @@ Since a Quarto file is _plain text_ we can track all changes with version contro
 
 ## Conclusion
 
-[Webpages]{.fragment fragment-index=1}<br>
-[Reports]{.fragment fragment-index=2}<br>
-[Presentations (like this one)]{.fragment fragment-index=3}<br>
-[Articles]{.fragment fragment-index=4}<br>
-[Your kappa?!]{.fragment fragment-index=5}<br>
-
-[![](images/homepage.png)]{.fragment fragment-index=1 style="position: absolute; top: 50px; right: 0px; width: 65%;"}
+::: {.incremental}
++ Webpages
++ Reports
++ Presentations (like this one)
++ Articles
++ Your kappa?!
+:::
