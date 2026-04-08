@@ -425,11 +425,15 @@ Version control is [not]{style="color: red; font-family: 'Playfair Display', ser
 
 [![](images/track_changes.png)]{.fragment}
 
+::: {.slide transition="zoom-in none-out"}
+
 ## Version control - Git
 
 Since a Quarto file is _plain text_ we can track all changes with version control
 
 [![](images/git.png)]{.fragment}
+
+:::
 
 ## Conclusion
 
