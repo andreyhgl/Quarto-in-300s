@@ -1,7 +1,11 @@
 name: Render and deploy
 
 on:
+  workflow_dispatch:
   push:
+    paths-ignore:
+      - 'REAMDE.md'
+      - '.github/workflows/**'
     branches:
       - main
 

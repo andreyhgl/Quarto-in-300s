@@ -2,16 +2,25 @@
 
 # README
 
-This repo holds the code for a Quarto presentation: **Quarto in 300 seconds**
+This repo holds the code for a Quarto presentation: **Quarto in 300 seconds**.
 
-https://andreyhgl.github.io/Quarto-in-300s/
+> [!NOTE]
+> Each push to this repo renders the presentation, which is hosted by github, [link](https://andreyhgl.github.io/Quarto-in-300s/).
 
-Setup:
+## Installing Quarto
 
-+ Make interactive reports, slides, homepages. 
-+ Markdown, executes R and Python, yml metadata, understands pure html.
-+ Show all above
+Follow the install guide [here](https://quarto.org/docs/get-started/).
 
-+ code examples
+## Running Quarto
 
-+ elev. pitch.
+To locally, use `preview`. This will spin up a `localhost`-server
+
+```sh
+quarto preview quarto-in-300-seconds.qmd
+```
+
+`render` generates a HTML which can be shared with others
+
+```sh
+quarto render quarto-in-300-seconds.qmd
+```
