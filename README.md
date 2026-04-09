@@ -11,6 +11,12 @@ This repo holds the code for a Quarto presentation: **Quarto in 300 seconds**.
 
 Follow the install guide [here](https://quarto.org/docs/get-started/).
 
+To confirm the installation run:
+
+```sh
+quarto --verison
+```
+
 ## Running Quarto
 
 To locally, use `preview`. This will spin up a `localhost`-server
