@@ -250,6 +250,7 @@ Quarto renders a file in the same manner as a jupyter notebook
 # Air particle measurements in a vector
 measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
 length(measurements)
+mean(measurements)
 sum(measurements)
 ```
 ````
@@ -272,6 +273,29 @@ Quarto renders a file in the same manner as a jupyter notebook
 # Air particle measurements in a vector
 measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
 length(measurements)
+mean(measurements)
+sum(measurements)
+```
+````
+
+```{r}
+mean(measurements)
+```
+
+:::: {style="position: absolute; bottom: 30px; width: 100%;"}
+::: {.callout-tip}
+Quarto renders a file in the same manner as a jupyter notebook
+:::
+::::
+
+## Running _`code`_ inside a Quarto file
+
+````{.md filename="script.R" code-line-numbers=5}
+```{{r}}
+# Air particle measurements in a vector
+measurements <- c(10, 15, 20, 33, 50, 32, 49, 18, 30, 54, 23)
+length(measurements)
+mean(measurements)
 sum(measurements)
 ```
 ````
