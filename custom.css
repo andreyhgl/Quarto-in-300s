@@ -24,3 +24,13 @@
 .reveal .slides {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
 }
+
+.reveal input[type="range"] {
+  color: black !important;
+  background: white !important;
+}
+
+.reveal input[type="number"] {
+  color: black !important;
+  background: white !important;
+}
