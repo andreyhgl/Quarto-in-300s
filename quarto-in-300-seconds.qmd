@@ -8,13 +8,16 @@ format:
     slide-number: true
     smaller: true
     css: custom.css
-    footer: "[Github repo](https://github.com/andreyhgl/Quarto-in-300s) | Quarto in 300 Seconds"
+    footer: "[Github repo](https://github.com/andreyhgl/Quarto-in-300s) | [Quarto](https://quarto.org/) in 300 Seconds"
 author: 
   - name: "Andrey Höglund"
     email: "andrey.hoglund@aces.su.se"
 date: today
 callout-appearance: minimal
-
+title-slide-attributes:
+  data-background-image: images/quarto_logo.png
+  data-background-size: 22%
+  data-background-position: 95% 95%
 ---
 
 ## Quarto is a software tool that . . . <!-- What is Quarto -->
@@ -414,6 +417,8 @@ Since a Quarto file is _plain text_ we can track all changes with version contro
 [![](images/git.png)]{.fragment}
 
 ## Conclusion
+
+![](images/quarto_logo.png){height=300 style="position: absolute; top: 60px; right: 250px; filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.7));"}
 
 ::: {.incremental}
 + Webpages

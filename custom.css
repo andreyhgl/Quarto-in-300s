@@ -12,3 +12,15 @@
 .reveal .quarto-title-author-email {
   color: grey !important;
 }
+
+.reveal .slides img {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7)) !important;
+}
+
+.reveal .slide-background-content {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7)) !important;
+}
+
+.reveal .slides {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
