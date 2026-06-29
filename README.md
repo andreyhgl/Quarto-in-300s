@@ -14,7 +14,7 @@ Follow the install guide [here](https://quarto.org/docs/get-started/).
 To confirm the installation run:
 
 ```sh
-quarto --verison
+quarto --version
 ```
 
 ## Running Quarto
